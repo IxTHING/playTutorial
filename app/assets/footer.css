@@ -1,0 +1,43 @@
+.facebookImg {
+    height: 50px;
+    width: 50px;
+}
+
+.twitterImg{
+    height: 50px;
+    width: 50px;
+}
+
+.googleImg{
+    height: 50px;
+    width: 50px;
+}
+
+.otherImg{
+    height: 50px;
+    width: 50px;
+}
+
+footer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+footer li {
+    float: left;
+}
+
+footer li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: #111111;
+}
+
+footer {
+    background-color: gray;
+}

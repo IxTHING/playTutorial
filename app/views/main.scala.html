@@ -8,8 +8,32 @@
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
         <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="../assets/navBar.css">
+        <link rel="stylesheet" type="text/css" href="../assets/footer.css">
+        <link rel="stylesheet" type="text/css" href="../assets/banner.css">
+        <link rel="stylesheet" type="text/css" href="../assets/carousel.css">
+        <link rel="stylesheet" type="text/css" href="../assets/slideshow.css">
+        <link rel="stylesheet" type="text/css" href="../assets/icehockey.css">
+
+        <script src="@routes.Assets.at("javascripts/slideshow.js")" type="text/javascript"></script>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
     </head>
     <body>
-        @content
+        <header>
+            @banner.apply()
+        </header>
+        <nav>
+            @navigation.apply()
+        </nav>
+        <section>
+            @content
+        </section>
+
+        <footer>
+            @footer.apply()
+        </footer>
     </body>
 </html>

@@ -1,0 +1,14 @@
+.bannerImg{
+    max-height: 150px;
+    width: 100%;
+}
+
+.bannerContainer{
+    position: relative;
+}
+
+.loginncreate{
+    position: absolute;
+    top: 8px;
+    right: 16px;
+}
