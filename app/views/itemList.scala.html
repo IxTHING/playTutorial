@@ -17,7 +17,7 @@
     }
 } else {
     @for((k,v)<- HockeySticksService.hockeySticksMap){
-        <a href="#">
+        <a href="/item/@k">
             <div class="itemList">
                 <img class="itemListImg" src="@routes.Assets.at("images/iceBanner.jpg")">
                 <h2>@v.name</h2>

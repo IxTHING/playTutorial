@@ -1,0 +1,27 @@
+@(obj: HockeySticks, form: Form[ShoppingBasket])(implicit messages: Messages)
+
+@main("itemPage"){
+    <div>
+        <div>
+            <h1>@obj.name</h1>
+            <img style="width: 150px" class="itemListImg" src="@routes.Assets.at("images/iceBanner.jpg")">
+        </div>
+        <div>
+            <h4>More Information</h4>
+            <p>Curve: @obj.curve</p>
+            <p>Make: @obj.make</p>
+            <p>Length: @obj.length</p>
+        </div>
+        <div>
+        @helper.form(routes.Application.addToBasketPost) {
+            @helper.inputText(form("name"), 'style -> "display: none")
+            <button type=”submit”>Submit</button>
+        }
+        </div>
+    </div>
+}
+
+
+
+
+

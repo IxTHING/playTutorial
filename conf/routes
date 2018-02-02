@@ -3,21 +3,26 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.home
-GET     /about                      controllers.Application.about
-GET     /hockeysticks               controllers.Application.hockeySticks
-GET     /figureskating              controllers.Application.figureSkating
-GET     /extra                      controllers.Application.extra
-GET     /hockeyhelmets              controllers.Application.hockeyHelmets
+GET         /                     controllers.Application.home
+GET         /about                controllers.Application.about
+GET         /hockeysticks         controllers.Application.hockeySticks
+GET         /figureskating        controllers.Application.figureSkating
+GET         /extra                controllers.Application.extra
+GET         /hockeyhelmets        controllers.Application.hockeyHelmets
 
-GET     /createaccount              controllers.Application.createAccount
-POST    /createaccount              controllers.Application.createAccountPost
 
-GET     /createstick                controllers.Application.createStick
-POST    /createstick                controllers.Application.createStickPost
+GET         /createaccount        controllers.Application.createAccount
+POST        /createaccount        controllers.Application.createAccountPost
 
-GET     /createhelmet               controllers.Application.createHelmet
-POST    /createhelmet               controllers.Application.createHelmetPost
+GET         /createstick          controllers.Application.createStick
+POST        /createstick          controllers.Application.createStickPost
+
+GET         /createhelmet         controllers.Application.createHelmet
+POST        /createhelmet         controllers.Application.createHelmetPost
+
+GET         /item/:items          controllers.Application.singleItem(items: String)
+
+POST        /addItem                controllers.Application.addToBasketPost
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET         /assets/*file         controllers.Assets.at(path="/public", file)

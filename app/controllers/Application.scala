@@ -9,12 +9,11 @@ import play.api.i18n.{I18nSupport, MessagesApi}
 
 class Application @Inject()(val messagesApi: MessagesApi) extends Controller with I18nSupport {
 
-
   def home = Action {
     Ok(views.html.homepage())
   }
 
-  def createAccount= Action {
+  def createAccount = Action {
     Ok(views.html.createAccount(Users.createUsersForm))
   }
 
@@ -26,13 +25,13 @@ class Application @Inject()(val messagesApi: MessagesApi) extends Controller wit
     Ok(views.html.hockeysticks())
   }
 
-  def createAccountPost = Action {implicit request: Request[AnyContent] =>
+  def createAccountPost = Action { implicit request: Request[AnyContent] =>
     Users.createUsersForm.bindFromRequest.fold(
-      {formWithErrors =>
+      { formWithErrors =>
         BadRequest(views.html.createAccount(formWithErrors))
       },
-      {aUser =>
-         UsersService.addUser(aUser.name, aUser.email, aUser.password)
+      { aUser =>
+        UsersService.addUser(aUser.name, aUser.email, aUser.password)
         Redirect(controllers.routes.Application.home())
       }
     )
@@ -46,40 +45,56 @@ class Application @Inject()(val messagesApi: MessagesApi) extends Controller wit
     Ok(views.html.createStick(HockeySticks.createSticksForm))
   }
 
-  def createHelmetPost = Action {implicit request: Request[AnyContent] =>
+  def createHelmetPost = Action { implicit request: Request[AnyContent] =>
     HockeyHelmets.createHelmetsForm.bindFromRequest.fold(
-      {formWithErrors =>
+      { formWithErrors =>
         BadRequest(views.html.createHelmet(formWithErrors))
       },
-      {aHelmet =>
+      { aHelmet =>
         HockeyHelmetsService.addHockeyHelmet(aHelmet.name, aHelmet.size, aHelmet.colour)
         Redirect(controllers.routes.Application.home())
       }
     )
   }
 
-  def createStickPost = Action {implicit request: Request[AnyContent] =>
+  def addToBasketPost = Action { implicit request: Request[AnyContent] =>
+    ShoppingBasket.addToBasketForm.bindFromRequest.fold(
+      { formWithErrors =>
+        BadRequest("Failed")
+      },
+      { aItem =>
+        ShoppingBasketService.addTOBasket(aItem.name)
+        Redirect(controllers.routes.Application.hockeySticks())
+      }
+    )
+  }
+
+  def createStickPost = Action { implicit request: Request[AnyContent] =>
     HockeySticks.createSticksForm.bindFromRequest.fold(
-      {formWithErrors =>
+      { formWithErrors =>
         BadRequest(views.html.createStick(formWithErrors))
       },
-      {aStick =>
+      { aStick =>
         HockeySticksService.addHockeyStick(aStick.name, aStick.make, aStick.curve, aStick.length)
         Redirect(controllers.routes.Application.home())
       }
     )
   }
 
-  def about= Action {
+  def about = Action {
     Ok(views.html.about())
   }
 
 
-  def figureSkating= Action {
+  def figureSkating = Action {
     Ok(views.html.figureskating())
   }
 
-  def extra= Action {
+  def extra = Action {
     Ok(views.html.extra())
+  }
+
+  def singleItem(name: String) = Action {
+    Ok(views.html.singleItem(HockeySticksService.hockeySticksMap(name), ShoppingBasket.addToBasketForm.fill(ShoppingBasket(name))))
   }
 }

@@ -14,8 +14,8 @@ object HockeySticksService {
   }
 
   def addTestHockeySticks(): Unit ={
-    hockeySticksMap += ("Nexus 7000" -> new HockeySticks("Nexus 7000", "Bouer", "72", 90))
-    hockeySticksMap += ("Nexus 6000" -> new HockeySticks("Nexus 6000", "Bouer", "90", 80))
-    hockeySticksMap += ("Supreme L1" -> new HockeySticks("Supreme L1", "Bouer", "85", 85))
+    hockeySticksMap += ("Nexus_7000" -> new HockeySticks("Nexus_7000", "Bouer", "72", 90))
+    hockeySticksMap += ("Nexus_6000" -> new HockeySticks("Nexus_6000", "Bouer", "90", 80))
+    hockeySticksMap += ("Supreme_L1" -> new HockeySticks("Supreme_L1", "Bouer", "85", 85))
   }
 }
