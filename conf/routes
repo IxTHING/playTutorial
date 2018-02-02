@@ -21,8 +21,10 @@ GET         /createhelmet         controllers.Application.createHelmet
 POST        /createhelmet         controllers.Application.createHelmetPost
 
 GET         /item/:items          controllers.Application.singleItem(items: String)
+POST        /addItem              controllers.Application.addToBasketPost
 
-POST        /addItem                controllers.Application.addToBasketPost
+GET         /login                controllers.Application.login
+POST        /login                controllers.Application.loginPost
 
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file         controllers.Assets.at(path="/public", file)

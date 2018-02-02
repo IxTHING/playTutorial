@@ -81,10 +81,21 @@ class Application @Inject()(val messagesApi: MessagesApi) extends Controller wit
     )
   }
 
+  def loginPost = Action { implicit request: Request[AnyContent] =>
+    Users.loginForm.bindFromRequest.fold(
+      { formWithErrors =>
+        BadRequest(views.html.login(formWithErrors))
+      },
+      { aUser =>
+
+        Redirect(controllers.routes.Application.home())
+      }
+    )
+  }
+
   def about = Action {
     Ok(views.html.about())
   }
-
 
   def figureSkating = Action {
     Ok(views.html.figureskating())
@@ -96,5 +107,9 @@ class Application @Inject()(val messagesApi: MessagesApi) extends Controller wit
 
   def singleItem(name: String) = Action {
     Ok(views.html.singleItem(HockeySticksService.hockeySticksMap(name), ShoppingBasket.addToBasketForm.fill(ShoppingBasket(name))))
+  }
+
+  def login = Action {
+    Ok(views.html.login(Users.loginForm))
   }
 }

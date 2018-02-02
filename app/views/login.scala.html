@@ -1,0 +1,11 @@
+@(form: Form[Users])(implicit messages: Messages)
+
+
+@main("loginPage"){
+    @helper.form(routes.Application.loginPost()) {
+        @helper.inputText(form("name"))
+        @helper.inputText(form("email"), 'id -> "SomeId", 'class -> "SomeClass")
+        @helper.inputPassword(form("password"))
+        <button type=”submit”>Log In</button>
+    }
+}

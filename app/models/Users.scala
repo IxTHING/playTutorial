@@ -14,6 +14,14 @@ object Users {
       "password" -> nonEmptyText
     )(Users.apply)(Users.unapply)
     )
+
+  val loginForm = Form(
+    mapping(
+      "name" -> text,
+      "email" -> email,
+      "password" -> nonEmptyText
+    )(Users.apply)(Users.unapply)
+  )
 }
 
 
