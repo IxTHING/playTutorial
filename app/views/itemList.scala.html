@@ -1,11 +1,35 @@
-<ul>
-@for(i <- 1 to 12 by 1){
-    <div class="itemList">
-        <li><img class="itemListImg" src="@routes.Assets.at("images/iceBanner.jpg")" style="width:100%"></li>
-        <p>Information about the current item. Will be populated by items from the db.</p>
-    </div>
+@(item: String)
+@HockeyHelmetsService.addTestHockeyHelmets()
+@HockeySticksService.addTestHockeySticks()
+@if(item.equals("helmets")){
+    @for((k,v)<- HockeyHelmetsService.hockeyHelmetsMap){
+        <a href="#">
+            <div class="itemList">
+                <img class="itemListImg" src="@routes.Assets.at("images/iceBanner.jpg")">
+                <h2>@v.name</h2>
+                <p>
+                    @k
+                    @v
+                </p>
+                <p>View More</p>
+            </div>
+        </a>
+    }
+} else {
+    @for((k,v)<- HockeySticksService.hockeySticksMap){
+        <a href="#">
+            <div class="itemList">
+                <img class="itemListImg" src="@routes.Assets.at("images/iceBanner.jpg")">
+                <h2>@v.name</h2>
+                <p>
+                    @k
+                    @v
+                </p>
+                <p>View More</p>
+            </div>
+        </a>
+    }
 }
-    @for(i <- 1 to 29 by 1){
-        <br>
-        }
-</ul>
+
+
+<p style="color: whitesmoke">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>

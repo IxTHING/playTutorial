@@ -12,3 +12,14 @@
     top: 8px;
     right: 16px;
 }
+
+body {
+    background-color: lightskyblue;
+}
+
+.container{
+    margin:0px auto;
+    max-width: 700px;
+    background-color: whitesmoke;
+    box-shadow: 5px 5px 5px black;
+}

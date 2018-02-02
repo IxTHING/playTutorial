@@ -1,13 +1,19 @@
 package models
 
-class Users (var name: String, var email: String, var password: String){
+import play.api.data.Form
+import play.api.data.Forms._
 
-  def getName():String={this.name}
-  def getEmail():String={this.email}
-  def getPassword():String={this.password}
+case class Users (var name: String, var email: String, var password: String)
 
-  def setName(value: String):Unit={this.name = value}
-  def setEmail(value: String):Unit={this.email = value}
-  def setPassword(value: String):Unit={this.password = value}
+object Users {
 
+  val createUsersForm = Form(
+    mapping(
+      "name" -> nonEmptyText,
+      "email" -> email,
+      "password" -> nonEmptyText
+    )(Users.apply)(Users.unapply)
+    )
 }
+
+

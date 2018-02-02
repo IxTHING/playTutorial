@@ -1,0 +1,11 @@
+@(form: Form[HockeySticks])(implicit messages: Messages)
+
+@main("createStick"){
+    @helper.form(routes.Application.createStickPost()) {
+        @helper.inputText(form("name"))
+        @helper.inputText(form("make"))
+        @helper.inputText(form("curve"))
+        @helper.inputText(form("length"))
+        <button type=”submit”>Submit</button>
+    }
+}

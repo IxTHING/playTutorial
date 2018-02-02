@@ -1,10 +1,10 @@
 package models
 
-class UsersService {
+object UsersService {
   var usersMap: Map[String, Users] = Map()//.withDefaultValue("")
 
   def addUser(name: String, email: String, password: String): Unit ={
-    //usersMap += (email -> (name, email, password))
+    usersMap += (email -> new Users(name, email, password))
   }
 
   def isUser(email: String): Boolean = {usersMap.contains(email)}
@@ -17,6 +17,6 @@ class UsersService {
     ((email != null)) &&
       (password != null) &&
       isUser(email) &&
-      getUser(email).getPassword().equals(password)
+      getUser(email).password.equals(password)
   }
 }

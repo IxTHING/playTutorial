@@ -1,0 +1,10 @@
+@(form: Form[HockeyHelmets])(implicit messages: Messages)
+
+@main("createHelmet"){
+    @helper.form(routes.Application.createHelmetPost()) {
+        @helper.inputText(form("name"))
+        @helper.inputText(form("size"))
+        @helper.inputText(form("colour"))
+        <button type=”submit”>Submit</button>
+    }
+}
